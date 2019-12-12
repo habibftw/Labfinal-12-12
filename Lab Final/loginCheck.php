@@ -1,26 +1,28 @@
 <?php
 	session_start();
-	require_once('../db/functions.php');
+	require_once('db/functions.php');
 	//define(name, value)
 	
 	if(isset($_POST['submit'])){
 
 		$uname = $_POST['uname'];
-		$password = $_POST['pass'];
+		$pass= $_POST['pass'];
+		
+	
 
-		if(empty($uname) == true || empty($password) == true){
+		if(empty($uname) == true || empty($pass) == true){
 			echo "null submission!";
 		}else{
 
-			$count = validate($uname, $password);
+			$count = validate($uname, $pass);
 
-			if($count > 0){
+			if($count > 0 && $user["utype"]== 'Admin'){
 				
 				$_SESSION['username'] = $uname;
-				$_SESSION['password'] = $password;
+				$_SESSION['password'] = $pass;
 
 				setcookie("username", $uname, time()+3600, "/");
-				header('location: ../views/home.php');
+				header('location:adminhome.php');
 
 			}else{
 				echo "invalid username/password";

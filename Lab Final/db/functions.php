@@ -1,18 +1,18 @@
 <?php
 	require_once('db.php');
 
-	function validate($uname, $password){
+	function validate($uname, $pass){
 		$conn = getConnection();
-		$sql = "select * from users where username='{$uname}' and password='{$password}'";
+		$sql = "select * from users where uname='{$uname}' and pass='{$pass}'";
 		$result = mysqli_query($conn, $sql);
 		$user = mysqli_fetch_assoc($result);
 		return count($user);
 	}
 
 
-	function register($uname, $password, $email){
+	function register($uname,$email,$name,$pass,$cpass,$utype){
 		$conn = getConnection();
-		$sql = "insert into users values('', '{$uname}','{$password}', '{$email}', 0)";
+		$sql="insert into users values('','{$uname}','{$name}','{$email}','{$pass}','{$cpass}',' {$utype}')";
 		if(mysqli_query($conn, $sql)){
 			return true;
 		}else{

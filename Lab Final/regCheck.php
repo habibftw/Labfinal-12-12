@@ -1,29 +1,38 @@
 <?php
 	
-	require_once('../db/functions.php');
+	require_once('db/functions.php');
 
 	if(isset($_POST['submit'])){
 
+		$name = $_POST['name'];
 		$uname = $_POST['uname'];
-		$password = $_POST['pass'];
 		$email = $_POST['email'];
-
-		if(empty($uname) == true || empty($password) == true || empty($email) == true){
+		$pass = $_POST['pass'];
+		$cpass = $_POST['cpass'];
+		$utype = $_POST['utype'];
+			
+		
+			if(empty($uname)==true ||
+		empty($email)==true ||
+		empty($pass) == true ||
+		empty($cpass) == true || 
+		empty($name)==true || 
+		empty($utype)==true){
 			echo "null submission!";
 		}else{
 
-			$status = register($uname, $password, $email);
+			$status = register($uname,$email,$name,$pass,$cpass,$utype);
 
 			if($status){
 
-				header('location: ../views/login.php?msg=success');
+				header('location: login.php?msg=success');
 			}else{
-				header('location: ../views/reg.php?msg=dberror');
+				header('location: reg.php?msg=dberror');
 			}
 		}
 
 	}else{
-		header('location: ../views/reg.php');
+		header('location:reg.php');
 	}
 
 

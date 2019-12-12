@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<form method="POST" action="../php/loginCheck.php">
+	<form method="POST" action="loginCheck.php">
 		<fieldset>
 			<legend>Login</legend>
 		<table>
