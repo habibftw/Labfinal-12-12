@@ -1,6 +1,6 @@
 <?php
 	
-	include('../db/functions.php');
+	include('db/functions.php');
 	$data = getAllUser();
 ?>
 
@@ -12,8 +12,8 @@
 <body>
 
 	<h2>User List</h2>
-	<a href="home.php">Back</a> |
-	<a href="../php/logout.php">logout</a>
+	<a href="adminhome.php">Back</a> |
+	<a href="logout.php">logout</a>
 
 	<br>
 	<br>
@@ -30,9 +30,9 @@
 		
 		<?php for($i=0; $i<count($data); $i++){ ?>
 		<tr>
-			<td><?= $data[$i]['id']; ?></td>
-			<td><?= $data[$i]['username']; ?></td>
-			<td><?= $data[$i]['password']; ?></td>
+			<td><?= $data[$i]['uname']; ?></td>
+			<td><?= $data[$i]['name']; ?></td>
+			<td><?= $data[$i]['pass']; ?></td>
 			<td><?= $data[$i]['email']; ?></td>
 			<td>
 				<a href="edit.php">Edit</a> | 

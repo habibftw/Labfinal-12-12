@@ -15,8 +15,9 @@
 		}else{
 
 			$count = validate($uname, $pass);
+			$utype = usertype($uname,$pass);
 
-			if($count > 0 && $user["utype"]== 'Admin'){
+			if($count > 0) {
 				
 				$_SESSION['username'] = $uname;
 				$_SESSION['password'] = $pass;
@@ -29,7 +30,7 @@
 			}
 		}
 	}else{
-		header('location: ../views/login.php');
+		header('location: login.php');
 	}
 
 

@@ -6,7 +6,17 @@
 		$sql = "select * from users where uname='{$uname}' and pass='{$pass}'";
 		$result = mysqli_query($conn, $sql);
 		$user = mysqli_fetch_assoc($result);
+	
 		return count($user);
+	}
+	
+		function usertype($uname, $pass){
+		$conn = getConnection();
+		$sql = "select utype from users where uname='{$uname}' and pass='{$pass}'";
+		$result = mysqli_query($conn, $sql);
+		$usertype = mysqli_fetch_assoc($result);
+		return $usertype;
+		
 	}
 
 
